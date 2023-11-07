@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val calendarView: CalendarView = findViewById(R.id.cal)
-        val textView: TextView = findViewById(R.id.t_text)
+        val textView: TextView = findViewById(R.id.t_text)gi
 
         //날짜 형태
         val dateFormat: DateFormat = SimpleDateFormat("yyyy년 MM월 dd일")

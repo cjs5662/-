@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.myapplicationllll"
+    namespace = "com.example.applicationforoop_jy"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.myapplicationllll"
+        applicationId = "com.example.applicationforoop_jy"
         minSdk = 24
         targetSdk = 33
         versionCode = 1
@@ -33,7 +33,8 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
-    viewBinding{
+
+    viewBinding {
         enable = true
     }
 }
@@ -41,7 +42,6 @@ android {
 dependencies {
 
     implementation("androidx.core:core-ktx:1.9.0")
-    implementation("androidx.fragment:fragment-ktx:1.6.1")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.10.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
