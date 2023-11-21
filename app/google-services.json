@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "336278933896",
+    "firebase_url": "https://planner-c04d6-default-rtdb.firebaseio.com",
+    "project_id": "planner-c04d6",
+    "storage_bucket": "planner-c04d6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:336278933896:android:095e1359f0a16ba76eaa3d",
+        "android_client_info": {
+          "package_name": "com.example.myapplicationllll"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC9uqsQhNfcfuQ_drIlMnLTriwENkSEbKs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
