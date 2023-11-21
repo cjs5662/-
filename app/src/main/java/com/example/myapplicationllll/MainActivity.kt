@@ -1,7 +1,11 @@
 package com.example.myapplicationllll
 
 import androidx.appcompat.app.AppCompatActivity
+
 import android.os.Bundle
+import android.widget.Button
+import androidx.fragment.app.FragmentTransaction
+
 import android.widget.CalendarView
 import android.widget.CompoundButton
 import android.widget.TextView
@@ -16,9 +20,22 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+<<<<<<< HEAD
         //객체 생성
         val dayText: TextView = findViewById(R.id.day_text)
         val calendarView: CalendarView = findViewById(R.id.calenderview)
+=======
+        // 기본화면->일정, 할일 리스트로 가는 버튼
+        val btnScheduleTodo: Button = findViewById(R.id.btn_scheduletodo)
+        btnScheduleTodo.setOnClickListener {
+            val transaction: FragmentTransaction = supportFragmentManager.beginTransaction()
+            transaction.replace(R.id.main_frame, Schedule_Todo())
+            transaction.commit()
+        }
+        
+        val calendarView: CalendarView = findViewById(R.id.cal)
+        val textView: TextView = findViewById(R.id.t_text)gi
+>>>>>>> dce38fbb0d5da4a18d28bdff22dbeaf6ada96ec7
 
         //날짜 형태
         val dateFormat: DateFormat = SimpleDateFormat("yyyy년 mm월 dd일")
