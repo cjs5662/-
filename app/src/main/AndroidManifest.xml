@@ -15,14 +15,11 @@
         android:theme="@style/Theme.MyApplicationllll"
         tools:targetApi="31">
         <activity
-<<<<<<< HEAD
             android:name=".MainActivity2"
-=======
             android:name=".ScheduleTodoActivity"
             android:exported="false" />
         <activity
             android:name=".ScheduleTodoInputActivity"
->>>>>>> dce38fbb0d5da4a18d28bdff22dbeaf6ada96ec7
             android:exported="false" />
         <activity
             android:name=".MainActivity"
