@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fillViewport="true"
     tools:context=".Schedule_Todo">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:weightSum="1">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -24,7 +24,8 @@
                 android:layout_weight="50"
                 android:gravity="center"
                 android:text="일정, 할일"
-                android:textSize="48sp" />
+                android:textSize="48sp"
+                android:textColor="#212121"/>
 
             <Button
                 android:id="@+id/btn_ScheduleTodoInput"
@@ -32,7 +33,9 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="+"
-                android:textSize="34sp" />
+                android:textSize="60sp"
+                android:textColor="#212121"
+                android:backgroundTint="#ffffff"/>
 
         </LinearLayout>
 
@@ -47,8 +50,9 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/scheduleRecyclerView"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.5" />
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:clipToPadding="false"/>
 
         <TextView
             android:id="@+id/textView4"
@@ -61,7 +65,8 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/todoRecyclerView"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.5" />
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:clipToPadding="false"/>
     </LinearLayout>
-</FrameLayout>
+</ScrollView>
