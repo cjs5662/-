@@ -57,6 +57,7 @@ class Schedule_Todo : Fragment() {
     }
 }
 
+// 스케줄 리스트를 RecyclerView에 표시하기 위한 어댑터
 class ScheduleAdapter : RecyclerView.Adapter<ScheduleAdapter.ViewHolder>() {
     private val scheduleList = ArrayList<Schedule>()
 
@@ -72,6 +73,7 @@ class ScheduleAdapter : RecyclerView.Adapter<ScheduleAdapter.ViewHolder>() {
 
     override fun getItemCount() = scheduleList.size
 
+    // RecyclerView의 각 항목을 표시하는 데 사용되는 클래스
     inner class ViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
         private val title: TextView = view.findViewById(R.id.is_title)
         private val time: TextView = view.findViewById(R.id.is_time)
@@ -94,6 +96,7 @@ class ScheduleAdapter : RecyclerView.Adapter<ScheduleAdapter.ViewHolder>() {
         }
     }
 
+    // 새로운 스케줄 리스트를 제출
     fun submitList(newScheduleList: List<Schedule>) {
         scheduleList.clear()
         scheduleList.addAll(newScheduleList)
@@ -101,6 +104,7 @@ class ScheduleAdapter : RecyclerView.Adapter<ScheduleAdapter.ViewHolder>() {
     }
 }
 
+// 할일 리스트를 RecyclerView에 표시하기 위한 어댑터
 class TodoAdapter : RecyclerView.Adapter<TodoAdapter.ViewHolder>() {
     private val todoList = ArrayList<Todo>()
 
@@ -116,6 +120,7 @@ class TodoAdapter : RecyclerView.Adapter<TodoAdapter.ViewHolder>() {
 
     override fun getItemCount() = todoList.size
 
+    // RecyclerView의 각 항목을 표시하는 데 사용되는 클래스
     inner class ViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
         private val title: TextView = view.findViewById(R.id.it_title)
         private val time: TextView = view.findViewById(R.id.it_time)
@@ -138,6 +143,7 @@ class TodoAdapter : RecyclerView.Adapter<TodoAdapter.ViewHolder>() {
         }
     }
 
+    // 새로운 할일 리스트를 제출하는 메소드
     fun submitList(newTodoList: List<Todo>) {
         todoList.clear()
         todoList.addAll(newTodoList)
