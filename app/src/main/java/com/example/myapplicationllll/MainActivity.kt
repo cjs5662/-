@@ -13,6 +13,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        // 기본 프래그먼트 설정
+        supportFragmentManager.beginTransaction().replace(R.id.main_frame, planner()).commit()
 
         // 바텀네비게이션 설정
         val bottomNavigation: BottomNavigationView = findViewById(R.id.bottom_navigation)
@@ -20,6 +22,9 @@ class MainActivity : AppCompatActivity() {
             when (item.itemId) {
                 // 첫번째 버튼으로 홈 화면으로 이동
                 R.id.nav_main -> {
+                    val transaction: FragmentTransaction = supportFragmentManager.beginTransaction()
+                    transaction.replace(R.id.main_frame, planner())
+                    transaction.commit()
                 }
                 R.id.nav_schedule_todo -> {
                     // 두 번째 버튼으로 일정, 할일 리스트 화면으로 이동
