@@ -5,14 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import androidx.fragment.app.FragmentTransaction
-
-import android.widget.CalendarView
-import android.widget.CompoundButton
-import android.widget.TextView
-import androidx.core.app.NotificationCompat
-import java.sql.Date
-import java.text.DateFormat
-import java.text.SimpleDateFormat
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
 
@@ -20,38 +13,22 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        //객체 생성
-        val dayText: TextView = findViewById(R.id.day_text)
-        val calendarView: CalendarView = findViewById(R.id.calenderview)
 
-        // 기본화면->일정, 할일 리스트로 가는 버튼
-        val btnScheduleTodo: Button = findViewById(R.id.btn_scheduletodo)
-        btnScheduleTodo.setOnClickListener {
-            val transaction: FragmentTransaction = supportFragmentManager.beginTransaction()
-            transaction.replace(R.id.main_frame, Schedule_Todo())
-            transaction.commit()
-        }
-        
-        val calendarView: CalendarView = findViewById(R.id.cal)
-        val textView: TextView = findViewById(R.id.t_text)gi
-
-        //날짜 형태
-        val dateFormat: DateFormat = SimpleDateFormat("yyyy년 mm월 dd일")
-
-        //date타입(오늘 날짜)
-        val date: Date = Date(calendarView.date)
-
-        //날짜 텍스트뷰에 담기
-        //dayText.text = dateFormat.format(date)
-
-        //CalenderView 날짜 변환 이벤트
-        calendarView.setOnDateChangeListener { calendarView, year, month, daymonth ->
-
-            //날짜 변수에 담기
-            var day: String = "${year}년 ${month + 1}월 ${daymonth}일"
-
-            //변수 텍스트뷰에 담기
-            //dayText.text = day
+        // 바텀네비게이션 설정
+        val bottomNavigation: BottomNavigationView = findViewById(R.id.bottom_navigation)
+        bottomNavigation.setOnNavigationItemSelectedListener { item ->
+            when (item.itemId) {
+                // 첫번째 버튼으로 홈 화면으로 이동
+                R.id.nav_main -> {
+                }
+                R.id.nav_schedule_todo -> {
+                    // 두 번째 버튼으로 일정, 할일 리스트 화면으로 이동
+                    val transaction: FragmentTransaction = supportFragmentManager.beginTransaction()
+                    transaction.replace(R.id.main_frame, Schedule_Todo())
+                    transaction.commit()
+                }
+            }
+            true
         }
 
     }

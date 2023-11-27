@@ -37,32 +37,46 @@ class Schedule_Todo_Input : Fragment() {
             val details = binding.etDetails.text.toString()
             val reward = binding.etReward.text.toString()
 
-            if (binding.radioGroup.checkedRadioButtonId == R.id.radio_schedule) {
-                val id = database.getReference("schedules").push().key
-                if (id != null) {
-                    val schedule = Schedule(title, time, details, reward, id)
-                    viewModel.saveSchedule(schedule)
-                } else {
-                    // id가 null인 경우에 대한 에러 처리
-                    Toast.makeText(context, "일정 생성에 실패하였습니다.", Toast.LENGTH_SHORT).show()
-                }
-            } else {
-                val id = database.getReference("todos").push().key
-                if (id != null) {
-                    val todo = Todo(title, time, details, reward, id)
-                    viewModel.saveTodo(todo)
-                } else {
-                    // id가 null인 경우에 대한 에러 처리
-                    Toast.makeText(context, "할일 생성에 실패하였습니다.", Toast.LENGTH_SHORT).show()
-                }
-            }
+            when (binding.radioGroup.checkedRadioButtonId) {
+                R.id.radio_schedule -> {
+                    val id = database.getReference("schedules").push().key
+                    if (id != null) {
+                        val schedule = Schedule(title, time, details, reward, id)
+                        viewModel.saveSchedule(schedule)
 
-            // 화면 전환 코드
-            parentFragmentManager.commit {
-                replace(R.id.main_frame, Schedule_Todo())
-                addToBackStack(null)
+                        // 화면 전환 코드
+                        parentFragmentManager.commit {
+                            replace(R.id.main_frame, Schedule_Todo())
+                            addToBackStack(null)
+                        }
+                    } else {
+                        // id가 null인 경우에 대한 에러 처리
+                        Toast.makeText(context, "일정 생성에 실패하였습니다.", Toast.LENGTH_SHORT).show()
+                    }
+                }
+                R.id.radio_todo -> {
+                    val id = database.getReference("todos").push().key
+                    if (id != null) {
+                        val todo = Todo(title, time, details, reward, id)
+                        viewModel.saveTodo(todo)
+
+                        // 화면 전환 코드
+                        parentFragmentManager.commit {
+                            replace(R.id.main_frame, Schedule_Todo())
+                            addToBackStack(null)
+                        }
+                    } else {
+                        // id가 null인 경우에 대한 에러 처리
+                        Toast.makeText(context, "할일 생성에 실패하였습니다.", Toast.LENGTH_SHORT).show()
+                    }
+                }
+                else -> {
+                    // 라디오 버튼이 선택되지 않은 경우에 대한 처리
+                    Toast.makeText(context, "일정 혹은 할일 중 선택하시오", Toast.LENGTH_SHORT).show()
+                }
             }
         }
+
 
         // 취소 버튼 클릭 시 이전 화면으로 이동
         binding.btnCancel.setOnClickListener {
