@@ -11,6 +11,12 @@ class ScheduleTodoViewModel : ViewModel() {
 
     // 일정, 할일 리스트를 Firebase에서 불러오기
     fun fetchScheduleAndTodo() {
+        fetchSchedules()
+        fetchTodos()
+    }
+
+    // Firebase에서 일정을 불러오기
+    private fun fetchSchedules() {
         val scheduleRef = database.getReference("schedules")
         scheduleRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
@@ -21,7 +27,10 @@ class ScheduleTodoViewModel : ViewModel() {
             override fun onCancelled(error: DatabaseError) {
             }
         })
+    }
 
+    // Firebase에서 할일을 불러오기
+    private fun fetchTodos() {
         val todoRef = database.getReference("todos")
         todoRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
