@@ -96,7 +96,7 @@ class ScheduleAdapter : RecyclerView.Adapter<ScheduleAdapter.ViewHolder>() {
         private val time: TextView = view.findViewById(R.id.is_time)
         private val details: TextView = view.findViewById(R.id.is_details)
         private val reward: TextView = view.findViewById(R.id.is_reward)
-        private val btnDelete: Button = view.findViewById(R.id.btn_delete_schedule)
+        private val btnDelete: Button = view.findViewById(R.id.btn_delete_todo)
 
         // Schedule 객체를 바인딩
         fun bind(schedule: Schedule) {
