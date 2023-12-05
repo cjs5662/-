@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name = "list">
+        <item>올해의 목표</item>
+        <item>이달의 목표</item>
+        <item>오늘의 목표</item>
+    </string-array>
+</resources>
