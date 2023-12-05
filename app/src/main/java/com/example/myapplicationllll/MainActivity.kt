@@ -26,8 +26,8 @@ class MainActivity : AppCompatActivity() {
                     transaction.replace(R.id.main_frame, planner())
                     transaction.commit()
                 }
+                // 두 번째 버튼으로 일정, 할일 리스트 화면으로 이동
                 R.id.nav_schedule_todo -> {
-                    // 두 번째 버튼으로 일정, 할일 리스트 화면으로 이동
                     val transaction: FragmentTransaction = supportFragmentManager.beginTransaction()
                     transaction.replace(R.id.main_frame, ScheduleTodo())
                     transaction.commit()
