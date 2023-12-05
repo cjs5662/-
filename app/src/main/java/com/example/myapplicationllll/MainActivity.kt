@@ -1,35 +1,46 @@
 package com.example.myapplicationllll
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
+
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.widget.Button
+import androidx.fragment.app.FragmentTransaction
+import com.example.myapplicationllll.GoalManagementActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
 
-    private val plannerFragment = planner()
-    private val scheduleTodoFragment = ScheduleTodo()
-
+    @Suppress("DEPRECATION")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         // 기본 프래그먼트 설정
-        replaceFragment(plannerFragment)
+        supportFragmentManager.beginTransaction().replace(R.id.main_frame, planner()).commit()
 
         // 바텀네비게이션 설정
-        findViewById<BottomNavigationView>(R.id.bottom_navigation).apply {
-            setOnItemSelectedListener { item ->
-                when (item.itemId) {
-                    R.id.nav_main -> replaceFragment(plannerFragment)
-                    R.id.nav_schedule_todo -> replaceFragment(scheduleTodoFragment)
+        val bottomNavigation: BottomNavigationView = findViewById(R.id.bottom_navigation)
+        bottomNavigation.setOnNavigationItemSelectedListener { item ->
+            when (item.itemId) {
+                // 첫번째 버튼으로 홈 화면으로 이동
+                R.id.nav_main -> {
+                    val transaction: FragmentTransaction = supportFragmentManager.beginTransaction()
+                    transaction.replace(R.id.main_frame, planner())
+                    transaction.commit()
                 }
-                true
+                // 두 번째 버튼으로 일정, 할일 리스트 화면으로 이동
+                R.id.nav_schedule_todo -> {
+                    val transaction: FragmentTransaction = supportFragmentManager.beginTransaction()
+                    transaction.replace(R.id.main_frame, ScheduleTodo())
+                    transaction.commit()
+                }
+                R.id.nav_goal -> {
+                    startActivity(Intent(this, GoalManagementActivity::class.java))
+                }
             }
+            true
         }
-    }
 
-    private fun replaceFragment(fragment: Fragment) {
-        supportFragmentManager.beginTransaction().replace(R.id.main_frame, fragment).commit()
     }
 }

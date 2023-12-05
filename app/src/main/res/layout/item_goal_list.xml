@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="8dp">
+
+    <TextView
+        android:id="@+id/itemGoal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="goal"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/itemContent"
+        app:layout_constraintEnd_toStartOf="@+id/cb"
+        app:layout_constraintStart_toEndOf="@+id/btn_Delete"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/itemContent"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Content"
+        app:layout_constraintBottom_toTopOf="@id/itemReward"
+        app:layout_constraintEnd_toStartOf="@+id/cb"
+        app:layout_constraintStart_toEndOf="@+id/btn_Delete"
+        app:layout_constraintTop_toBottomOf="@id/itemGoal" />
+
+    <TextView
+        android:id="@id/itemReward"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Reward"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/cb"
+        app:layout_constraintStart_toEndOf="@+id/btn_Delete"
+        app:layout_constraintTop_toBottomOf="@id/itemContent" />
+
+    <CheckBox
+        android:id="@+id/cb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+    <ImageButton
+        android:id="@+id/btn_Delete"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:background="#FFFFFF"
+        android:src="@android:drawable/presence_busy"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
