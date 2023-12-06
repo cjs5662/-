@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
 
         // 바텀네비게이션 설정
         val bottomNavigation: BottomNavigationView = findViewById(R.id.bottom_navigation)
-        bottomNavigation.setOnNavigationItemSelectedListener { item ->
+        bottomNavigation.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 // 첫번째 버튼으로 홈 화면으로 이동
                 R.id.nav_main -> {
