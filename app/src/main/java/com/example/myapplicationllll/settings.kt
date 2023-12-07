@@ -11,7 +11,7 @@ import android.widget.Button
 import android.widget.CalendarView
 import android.widget.TextView
 
-class planner_cal : Fragment() {
+class settings : Fragment() {
 
     private lateinit var textView: TextView
     private lateinit var fontButton1: Button
@@ -22,7 +22,7 @@ class planner_cal : Fragment() {
     private lateinit var button1: Button
     private lateinit var button2: Button
     private lateinit var button3: Button
-    private lateinit var button4: Button
+    private lateinit var button4: gButton
     private lateinit var calendarView: CalendarView
 
     private fun changeFont(fontName: String) {
@@ -46,7 +46,7 @@ class planner_cal : Fragment() {
         fontButton1.setOnClickListener { changeFont("bme.ttf") }
         fontButton2.setOnClickListener { changeFont("mugung.ttf") }
         fontButton3.setOnClickListener { changeFont("tmon.ttf") }
-        fontButton4.setOnClickListener { changeFont("korea.ttf") }
+        fontButton4.setOnClickListener { changeFont("goyang.ttf") }
 
 
 

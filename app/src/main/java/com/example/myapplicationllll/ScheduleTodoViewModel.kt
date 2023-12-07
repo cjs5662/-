@@ -9,8 +9,14 @@ class ScheduleTodoViewModel : ViewModel() {
     var scheduleList: MutableLiveData<List<Schedule>> = MutableLiveData()
     var todoList: MutableLiveData<List<Todo>> = MutableLiveData()
 
-    // 일정, 할일 리스트 불러오기
+    // 일정, 할일 리스트를 Firebase에서 불러오기
     fun fetchScheduleAndTodo() {
+        fetchSchedules()
+        fetchTodos()
+    }
+
+    // Firebase에서 일정을 불러오기
+    private fun fetchSchedules() {
         val scheduleRef = database.getReference("schedules")
         scheduleRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
@@ -21,7 +27,10 @@ class ScheduleTodoViewModel : ViewModel() {
             override fun onCancelled(error: DatabaseError) {
             }
         })
+    }
 
+    // Firebase에서 할일을 불러오기
+    private fun fetchTodos() {
         val todoRef = database.getReference("todos")
         todoRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
@@ -34,13 +43,13 @@ class ScheduleTodoViewModel : ViewModel() {
         })
     }
 
-    // 일정 저장
+    // 일정을 Firebase에 저장
     fun saveSchedule(schedule: Schedule) {
         val scheduleRef = database.getReference("schedules")
         scheduleRef.child(schedule.id).setValue(schedule)
     }
 
-    // 할일 저장
+    // 할일을 Firebase에 저장
     fun saveTodo(todo: Todo) {
         val todoRef = database.getReference("todos")
         todoRef.child(todo.id).setValue(todo)

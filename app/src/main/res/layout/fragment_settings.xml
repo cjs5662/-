@@ -62,7 +62,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="2dp"
-            android:fontFamily="@font/korea"
+            android:fontFamily="@font/goyang"
             android:text="글꼴4"
             android:onClick="onFontButtonClick"/>
 

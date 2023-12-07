@@ -1,14 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Schedule_Todo_Input">
+    android:fillViewport="true"
+    tools:context=".ScheduleTodoInput">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_gravity="center"
+            android:text="새로운 일정, 할일"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:gravity="center"/>
 
         <RadioGroup
             android:id="@+id/radioGroup"
@@ -41,19 +52,41 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"
             android:ems="10"
-            android:inputType="text"
+            android:inputType="textMultiLine"
             android:paddingBottom="25dp"
             android:hint="제목" />
 
-        <EditText
-            android:id="@+id/etTime"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
-            android:ems="10"
-            android:inputType="text"
-            android:paddingBottom="25dp"
-            android:hint="날짜 및 시간" />
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:text=" 날짜 선택  "
+                android:textSize="20sp" />
+
+            <Spinner
+                android:id="@+id/spinner_year"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3" />
+
+            <Spinner
+                android:id="@+id/spinner_month"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2" />
+
+            <Spinner
+                android:id="@+id/spinner_day"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2" />
+        </LinearLayout>
 
         <EditText
             android:id="@+id/etDetails"
@@ -62,9 +95,9 @@
             android:layout_marginTop="25dp"
             android:ems="10"
             android:gravity="start"
-            android:inputType="text"
-            android:paddingBottom="100dp"
-            android:hint="상세 내용" />
+            android:hint="세부 내용"
+            android:inputType="textMultiLine"
+            android:paddingBottom="100dp" />
 
         <EditText
             android:id="@+id/etReward"
@@ -72,9 +105,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"
             android:ems="10"
-            android:inputType="text"
-            android:paddingBottom="25dp"
-            android:hint="보상 내용" />
+            android:hint="목표에 대한 보상"
+            android:inputType="textMultiLine"
+            android:paddingBottom="25dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -88,7 +121,9 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="8dp"
                 android:layout_weight="1"
-                android:text="저장" />
+                android:backgroundTint="#F1ECF5"
+                android:text="저장"
+                android:textColor="#000000" />
 
             <Button
                 android:id="@+id/btn_cancel"
@@ -97,7 +132,9 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="16dp"
                 android:layout_weight="1"
-                android:text="취소" />
+                android:backgroundTint="#F1ECF5"
+                android:text="취소"
+                android:textColor="#000000" />
         </LinearLayout>
     </LinearLayout>
-</FrameLayout>
+</ScrollView>
