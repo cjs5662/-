@@ -29,6 +29,7 @@ class GoalAdapter(private val onDeleteListener: (Goal) -> Unit) : RecyclerView.A
 
     override fun getItemCount(): Int = goals.size
 
+    // 목표 목록 갱신
     fun setGoals(goals: List<Goal>) {
         this.goals = goals.toMutableList()
         notifyDataSetChanged()
