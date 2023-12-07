@@ -8,8 +8,7 @@
         android:title="일정, 할일" />
     <item
         android:id="@+id/nav_goal"
-        android:title="목표" />
-    <item
-        android:id="@+id/nav_settings"
-        android:title="설정" />
+        android:title="목표"
+        android:icon="@drawable/goal"/>
+
 </menu>
