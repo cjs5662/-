@@ -33,14 +33,11 @@ class MainActivity : AppCompatActivity() {
                     transaction.replace(R.id.main_frame, ScheduleTodo())
                     transaction.commit()
                 }
+
                 R.id.nav_goal -> {
                     startActivity(Intent(this, GoalManagementActivity::class.java))
                 }
-                R.id.nav_settings -> {
-                    val transaction: FragmentTransaction = supportFragmentManager.beginTransaction()
-                    transaction.replace(R.id.main_frame, settings())
-                    transaction.commit()
-                }
+
             }
             true
         }

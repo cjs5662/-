@@ -22,7 +22,7 @@ class settings : Fragment() {
     private lateinit var button1: Button
     private lateinit var button2: Button
     private lateinit var button3: Button
-    private lateinit var button4: gButton
+    private lateinit var button4: Button
     private lateinit var calendarView: CalendarView
 
     private fun changeFont(fontName: String) {
