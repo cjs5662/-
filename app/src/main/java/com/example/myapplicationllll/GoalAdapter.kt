@@ -1,5 +1,6 @@
 package com.example.myapplicationllll
 
+import android.graphics.Paint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ImageButton
@@ -7,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplicationllll.databinding.ItemGoalListBinding
 
 class GoalAdapter(private val onDeleteListener: (Goal) -> Unit) : RecyclerView.Adapter<GoalAdapter.GoalViewHolder>() {
+
     private var goals: MutableList<Goal> = mutableListOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GoalViewHolder {
@@ -15,13 +17,13 @@ class GoalAdapter(private val onDeleteListener: (Goal) -> Unit) : RecyclerView.A
     }
 
     override fun onBindViewHolder(holder: GoalViewHolder, position: Int) {
-        holder.bind(goals[position])
+        val current = goals[position]
 
-        // 삭제 버튼 클릭 이벤트 처리
+        holder.bind(current)
+
         holder.itemView.findViewById<ImageButton>(R.id.btn_Delete).setOnClickListener {
-            val goal = goals[position]
-            onDeleteListener.invoke(goal)
-            deleteGoal(goal)
+            onDeleteListener.invoke(current)
+            deleteGoal(current)
         }
     }
 
@@ -37,8 +39,16 @@ class GoalAdapter(private val onDeleteListener: (Goal) -> Unit) : RecyclerView.A
         if (position != -1) {
             goals.removeAt(position)
             notifyItemRemoved(position)
-            // FirebaseUtil을 사용하여 목표 삭제
+
             FirebaseUtil.deleteGoal(goal)
+        }
+    }
+
+    fun moveItemToLast(position: Int) {
+        if (position < itemCount - 1) {
+            val removedItem = goals.removeAt(position)
+            goals.add(removedItem)
+            notifyItemMoved(position, itemCount - 1)
         }
     }
 
@@ -50,7 +60,21 @@ class GoalAdapter(private val onDeleteListener: (Goal) -> Unit) : RecyclerView.A
             binding.itemContent.text = goal.content
             binding.itemReward.text = goal.reward
             binding.cb.isChecked = goal.isChecked
+
+            binding.cb.setOnCheckedChangeListener { _, isChecked ->
+                goal.isChecked = isChecked
+                FirebaseUtil.updateStatus(goal)
+                moveItemToLast(adapterPosition)
+
+                // 체크박스 상태에 따라 itemGoal의 텍스트에 줄 긋기
+                if (isChecked) {
+                    binding.itemGoal.paintFlags =
+                        binding.itemGoal.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+                } else {
+                    binding.itemGoal.paintFlags =
+                        binding.itemGoal.paintFlags and Paint.STRIKE_THRU_TEXT_FLAG.inv()
+                }
+            }
         }
     }
-
 }

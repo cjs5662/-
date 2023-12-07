@@ -5,6 +5,6 @@ data class Goal(
     val content: String = "",
     val reward: String = "",
     val period: String = "",
-    val isChecked: Boolean = false,
+    var isChecked: Boolean = false,
     var id: String = ""
 )
