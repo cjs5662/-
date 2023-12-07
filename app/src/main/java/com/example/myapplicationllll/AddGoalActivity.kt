@@ -7,11 +7,12 @@ import android.widget.Toast
 import com.example.myapplicationllll.databinding.ActivityAddGoalBinding
 
 class AddGoalActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityAddGoalBinding
+    private val binding: ActivityAddGoalBinding by lazy {
+        ActivityAddGoalBinding.inflate(layoutInflater)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityAddGoalBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         binding.btnExit.setOnClickListener {
@@ -19,7 +20,7 @@ class AddGoalActivity : AppCompatActivity() {
         }
 
         binding.btnCompletion.setOnClickListener {
-            val goal = binding.txtGoal.text.toString()
+            val title = binding.txtGoal.text.toString()
             val content = binding.txtContent.text.toString()
             val reward = binding.txtReward.text.toString()
             val period = when (binding.spinner.selectedItemPosition) {
@@ -28,9 +29,9 @@ class AddGoalActivity : AppCompatActivity() {
                 else -> "day"
             }
 
-            if (goal.isNotEmpty() && content.isNotEmpty()) {
+            if (title.isNotEmpty()) {
                 // Firebase에 데이터 저장
-                val goal = Goal(goal, content, reward, period)
+                val goal = Goal(title, content, reward, period)
                 FirebaseUtil.addGoal(goal)
 
                 // GoalManagementActivity로 돌아가기

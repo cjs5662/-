@@ -8,14 +8,16 @@ import com.example.myapplicationllll.databinding.ActivityGoalManagementBinding
 
 class GoalManagementActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityGoalManagementBinding
+    private val binding: ActivityGoalManagementBinding by lazy {
+        ActivityGoalManagementBinding.inflate(layoutInflater)
+    }
+
     private lateinit var goalsAdapterYear: GoalAdapter
     private lateinit var goalsAdapterMonth: GoalAdapter
     private lateinit var goalsAdapterDay: GoalAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityGoalManagementBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         binding.btnBack.setOnClickListener {
@@ -27,15 +29,12 @@ class GoalManagementActivity : AppCompatActivity() {
         }
 
         goalsAdapterYear = GoalAdapter{ goal ->
-            // 목표 삭제
             FirebaseUtil.deleteGoal(goal)
         }
         goalsAdapterMonth = GoalAdapter{ goal ->
-            // 목표 삭제
             FirebaseUtil.deleteGoal(goal)
         }
         goalsAdapterDay = GoalAdapter{ goal ->
-            // 목표 삭제
             FirebaseUtil.deleteGoal(goal)
         }
 

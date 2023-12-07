@@ -1,11 +1,14 @@
 package com.example.myapplicationllll
 
+import android.util.Log
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 
 object FirebaseUtil {
+
+    // 전역적으로 데이터베이스에 접근
     private val databaseReference = FirebaseDatabase.getInstance().reference
 
     fun addGoal(goal: Goal) {
@@ -29,12 +32,16 @@ object FirebaseUtil {
                 }
 
                 override fun onCancelled(error: DatabaseError) {
-                    // Handle error
+                    Log.e("FirebaseUtil", "Error in getGoals: ${error.message}")
                 }
             })
     }
 
     fun deleteGoal(goal: Goal) {
         databaseReference.child("goals").child(goal.id).removeValue()
+    }
+
+    fun updateStatus(goal: Goal) {
+        databaseReference.child("goals").child(goal.id).child("isChecked").setValue(goal.isChecked)
     }
 }
