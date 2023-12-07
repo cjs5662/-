@@ -1,14 +1,144 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".settings">
+    android:layout_height="match_parent">
 
-    <!-- TODO: Update blank fragment layout -->
+
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:id="@+id/font_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="4dp"
+        android:text="글꼴"
+        android:textSize="35sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+        app:layout_constraintStart_toStartOf="parent" />
 
-</FrameLayout>
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="162dp"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        android:weightSum="10"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/font_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="2dp"
+            android:fontFamily="@font/bme"
+            android:text="글꼴1"
+            android:onClick="onFontButtonClick"/>
+
+        <Button
+            android:id="@+id/font2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="2dp"
+            android:fontFamily="@font/mugung"
+            android:text="글꼴2"
+            android:onClick="onFontButtonClick"/>
+
+        <Button
+            android:id="@+id/font3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="2dp"
+            android:fontFamily="@font/tmon"
+            android:text="글꼴3"
+            android:onClick="onFontButtonClick"/>
+
+        <Button
+            android:id="@+id/font4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="2dp"
+            android:fontFamily="@font/goyang"
+            android:text="글꼴4"
+            android:onClick="onFontButtonClick"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/color_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="4dp"
+        android:text="색상"
+        android:textSize="35sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="268dp"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        android:weightSum="10"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <android.widget.Button
+            android:id="@+id/color_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="2dp"
+            android:background="#D34989"
+            android:backgroundTint="#D34989"
+            android:text="색상1"
+            android:textColorLink="@color/white"
+            android:shadowColor="#D34989"/>
+
+
+        <android.widget.Button
+            android:id="@+id/color_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="2dp"
+            android:background="#EDDE55"
+            android:backgroundTint="#EDDE55"
+            android:text="색상2"
+            android:textColorLink="@color/white"
+            android:shadowColor="#EDDE55"/>
+
+        <android.widget.Button
+            android:id="@+id/color_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="2dp"
+            android:background="#75EA7A"
+            android:backgroundTint="#75EA7A"
+            android:text="색상3"
+            android:textColorLink="@color/white"
+            android:shadowColor="#75EA7A"/>
+
+        <android.widget.Button
+            android:id="@+id/color_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="2dp"
+            android:background="#64C5F1"
+            android:backgroundTint="#64C5F1"
+            android:text="색상4"
+            android:textColorLink="@color/white"
+            android:shadowColor="#64C5F1"/>
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
